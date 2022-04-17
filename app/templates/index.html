@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>Navbar in Flask</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Movie</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <!-- <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul> -->
+        <form class="form-inline my-2 my-lg-0">
+          <!-- <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button> -->
+        </form>
+      </div>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/carslist">我的電影清單</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">登入</a>
+        </li>
+        <li></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">註冊</a>
+        </li>
+      </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %} {% endif %} {% endwith %}
+
+ 
+ <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+ 
+  <div class="carousel-inner">
+    
+    
+  
+    <div class="col-12 text-center"  > <!-- Second Col Starts -->
+     <br>
+     <div class="row" style="justify-content: center;">
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2"
+          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/5uLtaH3SwfeSFzXWNNPm-1080x1557.jpg"
+          alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">  失落謎城 </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">一位聰慧過人卻離群索居、個性孤僻的知名作家蘿莉塔賽吉（珊卓布拉克 飾）以創作故事發生在異國險境的暢銷愛情冒險小說為生，她筆下的男主人翁是根據一名高顏值的封面男模艾倫（查寧塔圖 飾）來塑造，他也一直以「戴許」這個角色自居。蘿莉坦與艾倫一起宣傳她的全新小說時，竟然被一名個性古怪的億萬富豪（丹尼爾雷徳克里夫 飾）綁架</p>
+          </a>
+        
+        <!-- <button type="button" class="btn btn-outline-dark">失落謎城</button> -->
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/GuXfkhKMr4jyuc00EydE-1080x1558.jpg"
+          alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">  那些得不到保護的人 </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">★佐藤健 X 阿部寬 X 瀨瀨敬久，刻劃人性善惡的震撼之作！ ★311 大地震最真情呈現人性的純粹與掙扎 ★激賞！榮獲 2021 年《報知映畫賞》最佳電影！(46) ★榮獲第 44 屆《山路文子電影獎》最佳新人女演員 ★入圍第 45 屆《日本電影學院獎》最佳作品等 11 項大獎 </p>
+          </a>
+        <!-- <button type="button" class="btn btn-outline-dark"></button> -->
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/February2022/xgWirr2BHLeSioltXgqx-1280x1799.jpg"
+          alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">  假面騎士劇場版-對決 超越新世代 </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">★假面騎士50周年紀念電影 即將上映！
+              ★以2021年為舞台，橫越3個時代100年的宏大故事，現在將要開始！
+              ★子承父志-初代假面騎士藤岡弘長子，藤岡真威人將演出假面騎士1號！
+              
+              跨越時代，在此集結！
+              性格熱心又重視家人的「五十嵐一輝」，在家族經營的「幸福澡堂」撿到了一個裝有老舊票券的失物。他將失物拿去送還給失主「百瀨秀夫」的路上，突然遭遇強敵襲擊！一輝和寄宿在體內的惡魔「拜斯(VICE)」一起變身成「假面騎士REVICE」，和趕來助陣，並可以變身為「假面騎士聖刃(SABER)」的小說家「神山飛羽真」一起聯手抗敵，但還是陷入了苦戰。沒料到身分成謎的「假面騎士CENTURY」，不知為何從未來的2071年回到現在，並突然攻擊了他們，使得一輝跟飛羽真只能暫時撤退…。
+              
+               </p>
+          </a>
+ 
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2"
+          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/zKLpDTkCEOtqSGQektqi-1080x1543.jpg" alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"> 電影版 如果30歲還是處男，似乎就能成為魔法師 </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">★ 豐田悠原作BL漫畫改編日劇後終於登上大銀幕！ ★ 赤楚衛二、町田啓太、淺香航大等日劇版原班人馬強勢回歸！ ★ 連續5週登上ORICON日劇滿意度第1名 ★ 2019年度全日本書店員工精選BL漫畫推薦 第1名 ★ KKTV 2020 K劇大賞 年度日劇獎 ★ 第106回日劇學院賞 最優秀作品獎、最優秀男配角獎 
+              
+               </p>
+          </a>
+ 
+ 
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2"
+          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/IyxsofrDcDCv3yEXDVeb-1080x1542.jpg"
+          alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">終極包圍戰</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">★ 《終極警探系列》布魯斯威利又一全新動作鉅獻 ★ 《狙擊封鎖線》《終極警探4.0》製片打造火爆動作片 ★ 看似平凡的小鎮，究竟隱藏什麼黑暗秘密？ 班（布魯斯威利 飾）是喬治亞州某城鎮的落魄警長，他專門為當地富人保守秘密。某天，三名歹徒為了尋找一位失蹤女子，綁架了鎮上的名醫作為人質，班被召來處理此一狀況，市長查爾斯
+              
+               </p>
+          </a>
+ 
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/MU31sTxcFEisWY1IH7zs-1280x1786.jpg" alt="">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">玩命獵殺</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">上映日期： 2022-04-08</p>
+          <p class="mb-1">★ 真實事件改編，動搖國本的軍火交易一觸即發！ ★《快克殺手》導演、奧斯卡得主梅爾吉勃遜，聯手打造年度動作強片！ ★《全面攻佔：倒數救援》柯爾豪瑟執行玩命交易，身陷黑吃黑危機！ ★ 槍砲彈藥、叢林飛車、酒池肉林、性愛歡愉，驚險刺激一應俱全！ 一場動搖國本的軍火交易行動 1989年，距離美國入侵巴拿馬還有六個月。
+            
+             </p>
+        </a>
+      
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/B7Wlc4nmhxCDAbdUhHw8-1080x1538.jpghttps://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/B7Wlc4nmhxCDAbdUhHw8-1080x1538.jpg"
+          alt="">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">投機者樂團：愛的鼓勵</h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">上映日期： 2022-04-08</p>
+            <p class="mb-1">★史上專輯與單曲發行量第一並榮登搖滾名人堂的傳奇樂團 ★六十年代衝浪搖滾領頭羊，Fender 吉他重要推手 ★Jimmy page、Jeff beck、Eric clapton 的年少偶像 ★龐克樂團 Ramones 的節奏吉他彈奏啟蒙祖師爺 ★鞭金樂團 Anthrax 的旋律吉他彈奏啟蒙祖師爺 ★一堆樂團吉他搖桿與效 ...
+              
+               </p>
+          </a>
+      
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/q4A9wFcEib1qbOroopIi-1080x1543.jpg" alt="">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">愛國女子─紅武士道</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">上映日期： 2022-04-08</p>
+          <p class="mb-1">重拾昔日崇高的武士道精神，為世人帶來嶄新的希望與勇氣 當危機來臨，看愛國女子‧愛國男子們如何因應 從小受到父親嚴格的訓練，擁有劍道四段、全國冠軍實力的大學生大和靜。某日在路上被星探挖角，前往試鏡途中卻遭四名大漢襲擊，只見她不費吹灰之力就擊倒所有對手。面對如此混亂的狀況，一名青年現身向靜表明，滅亡的危機如今正逼近日 ...
+            
+             </p>
+        </a>
+ 
+      </div>
+      <div class="col-sm-4 mb-5">
+        <img height="330" class="w-100 mb-2" src="   https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/February2022/sXZa4xYtkB4DvEtBjq8x-1080x1542.jpg" alt="">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">魔比斯</h5>
+            <small class="text-muted">3 days ago</small>
+          </div>
+          <p class="mb-1">上映日期： 2022-04-01</p>
+          <p class="mb-1">★索尼與漫威繼《猛毒》後再一野心暗黑爭議之作 ★《蜘蛛人》宇宙正式成立 全新神秘反派 吸血鬼「魔比斯」首推獨立電影 ★奧斯卡得主傑瑞德雷托領軍 金球獎影麥可基頓火力加持 再創漫威宇宙高峰 在漫威宇宙中最具爭議性且複雜的角色即將在大銀幕與全球觀眾見面！由奧斯卡得主傑瑞德雷托領軍，飾演一位患有罕見疾病的生物化學博士麥可
+            
+             </p>
+        </a>
+  
+      </div>
+   
+    </div>
+    </div> <!-- Second Col Ends -->
+  </div> <!-- Row Ends -->
+</div> <!-- Container Ends -->
+
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="bg-dark text-light">
+      <footer class="pt-3 pt-md-5 bg-dark container">
+          <div class="row">
+              <div class="col-12 col-md">
+                  <i class="fas fa-globe-americas fa-2x"></i>
+                  <small class="d-block mb-3 text-muted">© 2017-2020</small>
+              </div>
+              <div class="col-6 col-md">
+                  <h5>Features</h5>
+                  <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">Cool stuff</a></li>
+                      <li><a class="text-muted" href="#">Random feature</a></li>
+                      <li><a class="text-muted" href="#">Team feature</a></li>
+                  </ul>
+              </div>
+              <div class="col-6 col-md">
+                  <h5>Contact</h5>
+                  <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">Our Team</a></li>
+                      <li><a class="text-muted" href="#">Contact Us</a></li>
+                  </ul>
+              </div>
+              <div class="col-6 col-md">
+                  <h5>About</h5>
+                  <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">About Us</a></li>
+                      <li><a class="text-muted" href="#">Locations</a></li>
+                      <li><a class="text-muted" href="#">Privacy</a></li>
+                      <li><a class="text-muted" href="#">Terms</a></li>
+                  </ul>
+              </div>
+          </div>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <title>Your Movielist</title>
+    
+    <link rel="stylesheet" crossorigin="anonymous"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+    
+	<script crossorigin="anonymous"
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" >
+	</script>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 3px;
+    }
+</style>
+ 
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg   ">
+        <a class="navbar-brand" href="{{url_for('view_home')}}">< 回首頁</a>
+        
+           
+          
+        </div>
+      </nav>
+    <h2>電影清單</h2>
+    
+  
+    <div style="display: flex;width: 95%;justify-content:space-between">
+        <div  style="display: flex;justify-content:flex-start">
+            <a class="btn btn-primary" href="addcar">新增電影</a>
+        </div>
+       <div  style="display: flex;justify-content:flex-end;float:right">
+        <input
+        class="form-control mr-sm-2 light-table-filter" style="width: 200px;"
+        type="search"
+        data-table="order-table"
+        placeholder="查詢電影"
+        id="myInput"
+        onkeyup="myFunction()"
+      />
+      &nbsp;
+        <!-- <a class="btn btn-primary" href="addcar">查詢電影</a> -->
+       </div>
+      
+    </div>
+   
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+            <th scope="col">電影編號</th>
+            <th scope="col">電影名稱</th>
+            <th scope="col">上映年份</th>
+            <th scope="col">電影票價</th>
+            <th scope="col">修改</th>
+            <th scope="col">刪除</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+                <tr>
+                    <td>{{ car.id }}</th>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.year }}</td>
+                    <td>{{ car.price }}</td>
+                    <td><a href='updatecar/{{ car.id }}'>修改</a></td>
+                    <td><a href='deletecar/{{ car.id }}'>刪除</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("mytable");
+        tr = table.getElementsByTagName("tr");
+      
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+      
+</script>
