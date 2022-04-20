@@ -1,14 +1,11 @@
 import imp
 from flask import Flask
-#  from flask.ext.sqlalchemy import SQLAlchemy<--新版取消了
+ 
 from flask_sqlalchemy import SQLAlchemy
 import os
 import cx_Oracle
-from matplotlib.pyplot import connect
-from pymysql import NULL
 from sqlalchemy import create_engine
 from app import db,login_manager
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin 
  
 #  取得目前文件資料夾路徑
@@ -34,16 +31,19 @@ class MEMBER(db.Model):
     #     """檢查Email"""
     #     if MEMBER.query.filter_by(email=field.data).first():
     #         raise ValidationError('電子郵件已經被註冊過了')
-class CREW(db.Model):
-    __tablename__ = 'CREW'
-    CID = db.Column(db.String(20), primary_key=True)
-    CNAME = db.Column(db.String(20), unique=True, nullable=False)
-    def __init__(self,CID,CNAME):
-        self.CID = CID
-        self.CNAME = CNAME
- 
+class TBLCARS(db.Model):
+    __tablename__ = 'TBLCARS'
+    ID = db.Column(db.Integer, primary_key=True)
+    NAME=db.Column(db.String(100), unique=True, nullable=False)
+    YEAR=db.Column(db.String(100), unique=True, nullable=False)
+    PRICE=db.Column(db.Float(100), unique=True, nullable=False)
+    def __init__(self,ID,NAME,YEAR,PRICE):
+        self.ID = ID
+        self.NAME = NAME
+        self.YEAR = YEAR
+        self.PRICE = PRICE
     def __repr__(self):
-        return '<Member %r>' % self.MENAME
+        return '<Member %r>' % self.NAME
 
 @login_manager.user_loader
 def load_user(user_id):

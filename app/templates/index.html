@@ -9,6 +9,7 @@
     />
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,9 +18,24 @@
     />
 
     <title>Navbar in Flask</title>
+    <style>
+      *{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  
   </head>
 
   <body>
+           
+    <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for category, message in messages %} -->
+        <!-- <li class="{{ category }}">{{ message }}</li> -->
+      <!-- {% endfor %}
+      </ul>
+    {% endif %} -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Movie</a>
       <button
@@ -34,49 +50,64 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
-        <!-- <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-        </ul> -->
+     
         <form class="form-inline my-2 my-lg-0">
-          <!-- <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button> -->
+       
         </form>
       </div>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/carslist">我的電影清單</a>
         </li>
-        <li class="nav-item">
+ {% with messages = get_flashed_messages() %} 
+  {% if messages %}  
+    <li class="nav-item">
+      <a class="nav-link" href="/login">登出</a>
+    </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="/login">登入</a>
+      </li>
+      {% endif %} {% endwith %}
+        
+        <!-- <li class="nav-item">
           <a class="nav-link" href="/login">登入</a>
-        </li>
+        </li> -->
         <li></li>
         <li class="nav-item">
           <a class="nav-link" href="/register">註冊</a>
         </li>
       </ul>
     </nav>
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    <!-- {% with messages = get_flashed_messages() %} {% if messages %} {% for
       message in messages %}
       <p>{{ message }}</p>
-      {% endfor %} {% endif %} {% endwith %}
+      {% endfor %} {% endif %} {% endwith %} -->
 
- 
+
+
+      {% block content %}
+    <div class="container">
+        <!-- 用來接後端傳來的flash-message -->
+        {% for message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ message[0] }}">
+            <!-- 弄一個x的button，點擊之後讓訊息消失，可參考bootstrap說明 -->
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message[1]}}
+        </div>
+        {% endfor %}
+        <!-- 讓繼承的頁面有地方可以再加入新的block內容 -->
+        {% block page_content %}{% endblock page_content %}
+    </div>
+{% endblock content %}
+    {% endwith %}
+      <ul class="list-group" >
+        <li class="list-group-item list-group-item-success" style="font-size: 25px;color:blue">上映中</li>
+   
+      </ul>
+      
+      <hr>
+     
  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
  
   <div class="carousel-inner">
@@ -88,7 +119,7 @@
      <div class="row" style="justify-content: center;">
       <div class="col-sm-4 mb-5">
         <img height="330" class="w-100 mb-2"
-          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/5uLtaH3SwfeSFzXWNNPm-1080x1557.jpg"
+          src="https://www.themoviedb.org/t/p/w440_and_h660_face/p2hKCbHGoh5zNI8OKA2f5baXEwZ.jpg"
           alt="">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
@@ -102,15 +133,15 @@
         <!-- <button type="button" class="btn btn-outline-dark">失落謎城</button> -->
       </div>
       <div class="col-sm-4 mb-5">
-        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/GuXfkhKMr4jyuc00EydE-1080x1558.jpg"
+        <img height="330" class="w-100 mb-2" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/PnLUIU4s7uRcYZ1vWKEhJ6yhsg.jpg"
           alt="">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">  那些得不到保護的人 </h5>
+              <h5 class="mb-1">劇場版 咒術迴戰  </h5>
               <small class="text-muted">3 days ago</small>
             </div>
             <p class="mb-1">上映日期： 2022-04-08</p>
-            <p class="mb-1">★佐藤健 X 阿部寬 X 瀨瀨敬久，刻劃人性善惡的震撼之作！ ★311 大地震最真情呈現人性的純粹與掙扎 ★激賞！榮獲 2021 年《報知映畫賞》最佳電影！(46) ★榮獲第 44 屆《山路文子電影獎》最佳新人女演員 ★入圍第 45 屆《日本電影學院獎》最佳作品等 11 項大獎 </p>
+            <p class="mb-1">自幼感情極好的乙骨憂太與祈本里香約好長大後要結婚，卻不料里香因死亡車禍化為強大怨靈依附在憂太身邊，為此所苦的憂太一心求死，之後在五條悟的帶領下進入咒術高專結識了新同學：禪院真希、狗卷棘與熊貓，他決定在這裡找到活下去的自信並解除里香的詛咒。意欲奪取里香強大怨靈力量的夏油傑宣布在12月24日舉行「百鬼夜行」，在新宿與京都釋出上千個詛咒。面臨如此重大浩劫，憂太能否阻止夏油的野心並解開里香的詛咒？</p>
           </a>
         <!-- <button type="button" class="btn btn-outline-dark"></button> -->
       </div>
@@ -136,14 +167,14 @@
       </div>
       <div class="col-sm-4 mb-5">
         <img height="330" class="w-100 mb-2"
-          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/zKLpDTkCEOtqSGQektqi-1080x1543.jpg" alt="">
+          src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/khNVygolU0TxLIDWff5tQlAhZ23.jpg" alt="">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"> 電影版 如果30歲還是處男，似乎就能成為魔法師 </h5>
+              <h5 class="mb-1"> K.G.F: Chapter 2 </h5>
               <small class="text-muted">3 days ago</small>
             </div>
             <p class="mb-1">上映日期： 2022-04-08</p>
-            <p class="mb-1">★ 豐田悠原作BL漫畫改編日劇後終於登上大銀幕！ ★ 赤楚衛二、町田啓太、淺香航大等日劇版原班人馬強勢回歸！ ★ 連續5週登上ORICON日劇滿意度第1名 ★ 2019年度全日本書店員工精選BL漫畫推薦 第1名 ★ KKTV 2020 K劇大賞 年度日劇獎 ★ 第106回日劇學院賞 最優秀作品獎、最優秀男配角獎 
+            <p class="mb-1">The blood-soaked land of Kolar Gold Fields (KGF) has a new overlord now - Rocky, whose name strikes fear in the heart of his foes. His allies look up to Rocky as their Savior, the government sees him as a threat to law and order; enemies are clamoring for revenge and conspiring for his downfall. Bloodier battles and darker days await as Rocky continues on his quest for unchallenged supremacy. 
               
                </p>
           </a>
@@ -152,65 +183,65 @@
       </div>
       <div class="col-sm-4 mb-5">
         <img height="330" class="w-100 mb-2"
-          src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/IyxsofrDcDCv3yEXDVeb-1080x1542.jpg"
+          src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kOq1zyQxO3btBzS9GYYSdOFwD9c.jpg"
           alt="">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">終極包圍戰</h5>
+              <h5 class="mb-1">Gabriel's Rapture: Part II </h5>
               <small class="text-muted">3 days ago</small>
             </div>
-            <p class="mb-1">上映日期： 2022-04-08</p>
-            <p class="mb-1">★ 《終極警探系列》布魯斯威利又一全新動作鉅獻 ★ 《狙擊封鎖線》《終極警探4.0》製片打造火爆動作片 ★ 看似平凡的小鎮，究竟隱藏什麼黑暗秘密？ 班（布魯斯威利 飾）是喬治亞州某城鎮的落魄警長，他專門為當地富人保守秘密。某天，三名歹徒為了尋找一位失蹤女子，綁架了鎮上的名醫作為人質，班被召來處理此一狀況，市長查爾斯
+            <p class="mb-1">上映日期： 2022-03-24</p>
+            <p class="mb-1">In the fifth installment of the Gabriel's Inferno series, Gabriel and Julia’s happiness is threatened by a conspiring student and academic politics. When Gabriel is confronted by the university administration, will he succumb to Dante's fate? Or will he fight to keep Julia, his Beatrice, forever?
               
                </p>
           </a>
  
       </div>
       <div class="col-sm-4 mb-5">
-        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/MU31sTxcFEisWY1IH7zs-1280x1786.jpg" alt="">
+        <img height="330" class="w-100 mb-2" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xVygjpclB5qhKa4HgCq4R8hH0b7.jpg" alt="">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">玩命獵殺</h5>
-            <small class="text-muted">3 days ago</small>
+            <h5 class="mb-1">音速小子2</h5>
+            <small class="text-muted">10 days ago</small>
           </div>
           <p class="mb-1">上映日期： 2022-04-08</p>
-          <p class="mb-1">★ 真實事件改編，動搖國本的軍火交易一觸即發！ ★《快克殺手》導演、奧斯卡得主梅爾吉勃遜，聯手打造年度動作強片！ ★《全面攻佔：倒數救援》柯爾豪瑟執行玩命交易，身陷黑吃黑危機！ ★ 槍砲彈藥、叢林飛車、酒池肉林、性愛歡愉，驚險刺激一應俱全！ 一場動搖國本的軍火交易行動 1989年，距離美國入侵巴拿馬還有六個月。
+          <p class="mb-1">全世界最受歡迎的藍色刺蝟又回來了，他在《音速小子2》一片中將有一場升級的精采冒險。音速小子索尼克在綠丘鎮安頓下來之後，他就急著要證明自己有能力成為一名真正的英雄。當蛋頭博士帶著全新的搭檔納克魯斯，又回來尋找一塊力量強大足以毀滅人類文明的翡翠的時候，他就面對了另一個嚴峻的考驗。 這次索尼克和他自己的跟班塔爾斯攜手合作，一起踏上一場環遊世界的冒險旅程，希望能在那塊翡翠落入壞人手中之前先找到它
             
              </p>
         </a>
       
       </div>
       <div class="col-sm-4 mb-5">
-        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/B7Wlc4nmhxCDAbdUhHw8-1080x1538.jpghttps://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/B7Wlc4nmhxCDAbdUhHw8-1080x1538.jpg"
+        <img height="330" class="w-100 mb-2" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2pCOmdHU3m1pkChn9V0jbSfkepq.jpg"
           alt="">
           <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">投機者樂團：愛的鼓勵</h5>
+              <h5 class="mb-1">救命緝約</h5>
               <small class="text-muted">3 days ago</small>
             </div>
-            <p class="mb-1">上映日期： 2022-04-08</p>
-            <p class="mb-1">★史上專輯與單曲發行量第一並榮登搖滾名人堂的傳奇樂團 ★六十年代衝浪搖滾領頭羊，Fender 吉他重要推手 ★Jimmy page、Jeff beck、Eric clapton 的年少偶像 ★龐克樂團 Ramones 的節奏吉他彈奏啟蒙祖師爺 ★鞭金樂團 Anthrax 的旋律吉他彈奏啟蒙祖師爺 ★一堆樂團吉他搖桿與效 ...
+            <p class="mb-1">上映日期： 2022-04-01</p>
+            <p class="mb-1">詹姆士(克里斯潘恩 飾)自特種部隊退伍後，為了養家糊口加入秘密軍事組織，簽下神秘契約後奉命至東歐執行任務。某次行動中，詹姆士發現自己成為地下組織追殺的目標，為了活命他不得不違背契約開始逃亡。究竟契約背後隱藏著什麼秘密？孤軍奮戰的他又該如何揪出幕後主使者，讓自己活著回家？
               
                </p>
           </a>
       
       </div>
       <div class="col-sm-4 mb-5">
-        <img height="330" class="w-100 mb-2" src="https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/March2022/q4A9wFcEib1qbOroopIi-1080x1543.jpg" alt="">
+        <img height="330" class="w-100 mb-2" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4hqtjslVCaDVgblg7iCtGIy7exO.jpg" alt="">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">愛國女子─紅武士道</h5>
-            <small class="text-muted">3 days ago</small>
+            <h5 class="mb-1">Beast</h5>
+            <small class="text-muted">5 days ago</small>
           </div>
-          <p class="mb-1">上映日期： 2022-04-08</p>
-          <p class="mb-1">重拾昔日崇高的武士道精神，為世人帶來嶄新的希望與勇氣 當危機來臨，看愛國女子‧愛國男子們如何因應 從小受到父親嚴格的訓練，擁有劍道四段、全國冠軍實力的大學生大和靜。某日在路上被星探挖角，前往試鏡途中卻遭四名大漢襲擊，只見她不費吹灰之力就擊倒所有對手。面對如此混亂的狀況，一名青年現身向靜表明，滅亡的危機如今正逼近日 ...
+          <p class="mb-1">上映日期： 2022-04-13</p>
+          <p class="mb-1">A former RAW officer, who is among the hostages in a mall taken over by terrorists, has to foil their plans and prevent the government from releasing a dreaded terrorist, who he had helped put in prison at great personal cost.
             
              </p>
         </a>
  
       </div>
       <div class="col-sm-4 mb-5">
-        <img height="330" class="w-100 mb-2" src="   https://movies.yahoo.com.tw/x/r/w420/i/o/production/movies/February2022/sXZa4xYtkB4DvEtBjq8x-1080x1542.jpg" alt="">
+        <img height="330" class="w-100 mb-2" src=" https://www.themoviedb.org/t/p/w440_and_h660_face/clopZjImqBNbEbfQYBWGIpz3OXM.jpg" alt="">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">魔比斯</h5>
@@ -243,6 +274,7 @@
         </li>
       </ul>
     </nav>
+   
     <div class="bg-dark text-light">
       <footer class="pt-3 pt-md-5 bg-dark container">
           <div class="row">

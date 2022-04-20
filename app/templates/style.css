@@ -1,0 +1,128 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: inherit;
+  list-style: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e8e8e8;
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  @-webkit-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-125%);
+      transform: translateX(-125%);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-125%);
+      transform: translateX(-125%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  @-webkit-keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-166.65%);
+      transform: translateX(-166.65%);
+    }
+  }
+  @keyframes marquee {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-166.65%);
+      transform: translateX(-166.65%);
+    }
+  }
+}
+
+#marquee {
+  padding: 50px 0;
+  width: 100%;
+}
+
+#marquee .view {
+  overflow: hidden;
+  width: 100%;
+}
+
+#marquee .pic-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: marquee 60s infinite linear;
+  animation: marquee 60s infinite linear;
+}
+
+#marquee .pic-container .pic {
+  -ms-flex-preferred-size: 20%;
+  flex-basis: 20%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  #marquee .pic-container .pic {
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  #marquee .pic-container .pic {
+    -ms-flex-preferred-size: 33.33%;
+    flex-basis: 33.33%;
+  }
+}
+
+#marquee img {
+  width: 100%;
+  vertical-align: middle;
+}
+/*# sourceMappingURL=style.css.map */

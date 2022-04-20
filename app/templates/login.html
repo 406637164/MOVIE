@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %} {% import "bootstrap/wtf.html" as wtf %} {%
+  block title %}Reister Page{% endblock title %} {% block content %}
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <nav class="navbar navbar-expand-lg   ">
+    <a class="navbar-brand" href="{{url_for('view_home')}}">< 回上頁</a>
+    
+       
+      
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Register Your Account</h1>
+    <h2>Welcome To My Movie</h2>
+    {{ wtf.quick_form(form) }}
+  </div>
+  {% endblock content%}
+  
